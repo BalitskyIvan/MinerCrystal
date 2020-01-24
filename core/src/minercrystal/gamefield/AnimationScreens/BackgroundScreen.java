@@ -26,7 +26,6 @@ public class BackgroundScreen {
         bgRect = new Texture("BackgroundAnimation/BKStone.png");
         r = new Random();
         bgStoneRect = new Array<>();
-        float r = 0;
         float xNow = 0;
         yNow = HEIGHT - stoneWH;
         for (; xNow < WIDTH + stoneWH ; xNow += stoneWH) {
