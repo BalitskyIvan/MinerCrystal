@@ -1,6 +1,7 @@
 package minercrystal.gamefield.WorkScreens.Tools.Managers.StoryManager;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import minercrystal.gamefield.WorkScreens.Tools.Managers.StoryManager.Scenes.K1;
@@ -18,17 +19,19 @@ public class StoryMain {
     private TextPrinter textPrinter;
     private boolean isStoryEnded;
 
-    public StoryMain() {
-        textPrinter = new TextPrinter();
-        CutNow = new K2(textPrinter);
-        CutNow.play(12, "");
+    public StoryMain(BitmapFont bitmapFont) {
+        textPrinter = new TextPrinter(bitmapFont);
+        CutNow = new K1(textPrinter);
+        CutNow.play(12, "Once upon a time, on a small island, in a small village,");
     }
 
     public void render(SpriteBatch spriteBatch, float delta){
+
+        CutNow.render(spriteBatch, delta);
         Color c = spriteBatch.getColor();
         spriteBatch.setColor(c.r, c.g, c.b, 1);
         textPrinter.render(spriteBatch, delta);
-        CutNow.render(spriteBatch, delta);
+
         if(CutNow.isStopped())
             changeCut();
     }
@@ -38,7 +41,7 @@ public class StoryMain {
         switch (numberofCut){
             case 0:
                CutNow = new K2(textPrinter);
-               CutNow.play(20, "");
+               CutNow.play(20, "there lived a poor people with a generous soul.");
                 break;
             case 1:
                 CutNow = new K3(textPrinter);

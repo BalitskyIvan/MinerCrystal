@@ -17,14 +17,13 @@ public class BackgroundScreen {
     private boolean isFirst = true;
     private float SPEED = 1.5f, WIDTH, HEIGHT, yNow;
     private SkyAnimation skyAnimation;
-    private Random r;
+
 
     public BackgroundScreen(float w, float h, float stoneWH) {
         this.WIDTH = w;
         this.HEIGHT = h;
 
         bgRect = new Texture("BackgroundAnimation/BKStone.png");
-        r = new Random();
         bgStoneRect = new Array<>();
         float xNow = 0;
         yNow = HEIGHT - stoneWH;

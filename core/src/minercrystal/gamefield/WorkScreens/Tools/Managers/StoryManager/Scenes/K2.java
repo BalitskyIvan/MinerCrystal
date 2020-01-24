@@ -17,7 +17,7 @@ public class K2 implements Scene {
     private boolean isStop;
     private static final float widthCol = 80, heightCol = 110;
     private float time, timeAccumulator = 0, alpha = 0, speedAlpha = 0.07f, accelerationAlpha = 1.1f, deadTime = 2f, zoomSpeed = 0;
-    private Texture personTexture;
+    private Texture personTexture, bb;
     private Array<Array<Rectangle>> peopleRects;
     private TextPrinter textPrinter;
 
@@ -35,17 +35,17 @@ public class K2 implements Scene {
         }
         peopleRects.reverse();
         personTexture = new Texture("historyManager/1/0.png");
+        bb = new Texture("bb.jpg");
     }
 
     @Override
     public void render(SpriteBatch spriteBatch, float delta) {
         timeAccumulator += delta;
         if (timeAccumulator < time) {
-            Color c = spriteBatch.getColor();
-            spriteBatch.setColor(c.r, c.g, c.b, 0.8f);
+
             if (time - timeAccumulator <= deadTime) {
                 alpha -= 1/deadTime * delta;
-               c = spriteBatch.getColor();
+              Color c = spriteBatch.getColor();
                 spriteBatch.setColor(c.r, c.g, c.b, alpha);
                 if(!textPrinter.isTextDeleted())
                     textPrinter.deletePrint();
@@ -78,7 +78,9 @@ public class K2 implements Scene {
 
             }
         }
-
+        Color c = spriteBatch.getColor();
+        spriteBatch.setColor(c.r, c.g, c.b, 0.2f);
+        spriteBatch.draw(bb, 0, 0, 480, 800);
         spriteBatch.end();
     }
 

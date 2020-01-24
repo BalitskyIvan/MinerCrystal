@@ -51,11 +51,11 @@ public class MenuScreen implements Screen {
         I18NBundle myBundle = I18NBundle.createBundle(baseFileHandle, locale);
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("Fonts/MainFont.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 52;
+        parameter.size = 12;
         parameter.color = new Color(111f, 55f, 19f, 1);
         font12 = generator.generateFont(parameter);
         menuButtons = new MenuButtons(font12, myBundle);
-        legendManager = new LegendManager(Gdx.app.getPreferences("MainPreferences"));
+        legendManager = new LegendManager(Gdx.app.getPreferences("MainPreferences"), font12);
 
 
     }
