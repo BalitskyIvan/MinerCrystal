@@ -55,7 +55,7 @@ public class K1 implements Scene {
         isStop = false;
         alpha = 0;
         timeAccumulator = 0;
-        textPrinter.startPrint(text, time - deadTime, new Vector2(0, 700));
+        textPrinter.startPrint(text, time - deadTime, new Vector2(0, 700), 3f);
     }
 
     private void drawIsland(SpriteBatch spriteBatch) {

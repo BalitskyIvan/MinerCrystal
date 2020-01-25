@@ -22,7 +22,7 @@ public class StoryMain {
     public StoryMain(BitmapFont bitmapFont) {
         textPrinter = new TextPrinter(bitmapFont);
         CutNow = new K1(textPrinter);
-        CutNow.play(12, "Once upon a time, on a small island, in a small village,");
+        CutNow.play(12, "Once upon a time,\n on a small island,\n in a small village,");
     }
 
     public void render(SpriteBatch spriteBatch, float delta){
@@ -31,7 +31,6 @@ public class StoryMain {
         Color c = spriteBatch.getColor();
         spriteBatch.setColor(c.r, c.g, c.b, 1);
         textPrinter.render(spriteBatch, delta);
-
         if(CutNow.isStopped())
             changeCut();
     }

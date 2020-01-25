@@ -65,7 +65,7 @@ public class K2 implements Scene {
         isStop = false;
         alpha = 0;
         timeAccumulator = 0;
-        textPrinter.startPrint(text, time - deadTime, new Vector2(0, 700));
+        textPrinter.startPrint(text, time - deadTime, new Vector2(0, 700), 0f);
     }
     private void drawPeople(SpriteBatch spriteBatch) {
         spriteBatch.begin();
