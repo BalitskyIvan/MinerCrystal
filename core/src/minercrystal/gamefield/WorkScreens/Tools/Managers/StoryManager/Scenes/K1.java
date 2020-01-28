@@ -12,7 +12,7 @@ import minercrystal.gamefield.WorkScreens.Tools.Managers.StoryManager.Tools.Text
 public class K1 implements Scene {
 
     private boolean isStop;
-    private float time, timeAccumulator = 0, alpha = 0, speedAlpha = 0.07f, accelerationAlpha = 1.1f, deadTime = 2f, zoomSpeed = 0;
+    private float time, timeAccumulator = 0, alpha = 0, startTime = 2f, deadTime = 1.2f, zoomSpeed = 0;
     private Texture islandTexture;
     private Rectangle islandRect;
     private TextPrinter textPrinter;
@@ -31,11 +31,9 @@ public class K1 implements Scene {
                 alpha -= 1/deadTime * delta;
                 Color c = spriteBatch.getColor();
                 spriteBatch.setColor(c.r, c.g, c.b, alpha);
-                if(!textPrinter.isTextDeleted())
-                    textPrinter.deletePrint();
+                 textPrinter.setAlpha(alpha);
             } else if (alpha < 1) {
-                speedAlpha *= accelerationAlpha;
-                alpha += speedAlpha;
+                alpha += 1/startTime *delta;
                 if (alpha > 1)
                     alpha = 1;
                 Color c = spriteBatch.getColor();
@@ -45,17 +43,18 @@ public class K1 implements Scene {
 
         } else {
             isStop = true;
+                textPrinter.deletePrint();
         }
     }
 
     @Override
     public void play(float time, String text) {
         this.time = time;
-        zoomSpeed = 10 / time;
+        zoomSpeed = 5 / time;
         isStop = false;
         alpha = 0;
         timeAccumulator = 0;
-        textPrinter.startPrint(text, time - deadTime, new Vector2(0, 700), 3f);
+        textPrinter.startPrint(text, time - deadTime*2.5f, new Vector2(100, 700), 3f);
     }
 
     private void drawIsland(SpriteBatch spriteBatch) {

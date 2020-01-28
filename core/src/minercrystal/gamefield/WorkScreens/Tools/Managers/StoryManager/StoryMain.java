@@ -21,8 +21,8 @@ public class StoryMain {
 
     public StoryMain(BitmapFont bitmapFont) {
         textPrinter = new TextPrinter(bitmapFont);
-        CutNow = new K1(textPrinter);
-        CutNow.play(12, "Once upon a time,\n on a small island,\n in a small village,");
+        CutNow = new K3(textPrinter);
+        CutNow.play(12, "Once upon a time,\n on a small island\n in a small village");
     }
 
     public void render(SpriteBatch spriteBatch, float delta){
@@ -40,11 +40,11 @@ public class StoryMain {
         switch (numberofCut){
             case 0:
                CutNow = new K2(textPrinter);
-               CutNow.play(20, "there lived a poor people with a generous soul.");
+               CutNow.play(8, "there lived a poor people\n with a generous soul.");
                 break;
             case 1:
                 CutNow = new K3(textPrinter);
-                CutNow.play(5, "");
+                CutNow.play(9, "");
 
                 break;
             case 2:

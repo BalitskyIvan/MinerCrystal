@@ -16,7 +16,7 @@ import minercrystal.gamefield.WorkScreens.Tools.Managers.StoryManager.Tools.Text
 public class K2 implements Scene {
     private boolean isStop;
     private static final float widthCol = 80, heightCol = 110;
-    private float time, timeAccumulator = 0, alpha = 0, speedAlpha = 0.07f, accelerationAlpha = 1.1f, deadTime = 2f, zoomSpeed = 0;
+    private float time, timeAccumulator = 0, alpha = 0, deadTime = 2f, zoomSpeed = 0;
     private Texture personTexture, bb;
     private Array<Array<Rectangle>> peopleRects;
     private TextPrinter textPrinter;
@@ -65,7 +65,7 @@ public class K2 implements Scene {
         isStop = false;
         alpha = 0;
         timeAccumulator = 0;
-        textPrinter.startPrint(text, time - deadTime, new Vector2(0, 700), 0f);
+        textPrinter.startPrint(text, time - deadTime*2.5f, new Vector2(50, 700), 0f);
     }
     private void drawPeople(SpriteBatch spriteBatch) {
         spriteBatch.begin();
@@ -91,6 +91,7 @@ public class K2 implements Scene {
 
     @Override
     public void dispose() {
-
+        bb.dispose();
+        personTexture.dispose();
     }
 }

@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class TextPrinter {
     private boolean isDeployed = false,isTextDeleted = false;
-    private float speed = 0, accumulator, deltaLong, alpha = 0;
+    private float speed = 0, accumulator, deltaLong, alpha = 0, alphaMain = 1;
     private int charIndex = 0;
     private Vector2 startPos;
     private BitmapFont font;
@@ -27,6 +27,7 @@ public class TextPrinter {
         charIndex = 0;
         newEl = String.valueOf(textDefault.charAt(charIndex));
         accumulator = 0;
+        alphaMain = 1;
         isTextDeleted = false;
         isDeployed = false;
     }
@@ -34,6 +35,7 @@ public class TextPrinter {
     public void deletePrint() {
         isTextDeleted = true;
         textNow = "";
+        newEl = "";
     }
 
     public void render(SpriteBatch spriteBatch, float delta) {
@@ -45,7 +47,7 @@ public class TextPrinter {
 
         font.draw(spriteBatch, (textNow + newEl), startPos.x, startPos.y);
         spriteBatch.end();
-        font.setColor(fcolor.r,fcolor.g,  fcolor.b, 1);
+        font.setColor(fcolor.r,fcolor.g,  fcolor.b, alphaMain);
 
         spriteBatch.begin();
         font.draw(spriteBatch, textNow, startPos.x, startPos.y);
@@ -62,6 +64,8 @@ public class TextPrinter {
                 charIndex++;
                 if(charIndex< textDefault.length())
                 newEl = String.valueOf(textDefault.charAt(charIndex));
+                else
+                    newEl = "";
                 alpha = 0;
                 accumulator = 0;
             }
@@ -71,7 +75,10 @@ public class TextPrinter {
     public boolean isTextDeleted() {
         return isTextDeleted;
     }
-
+    public void setAlpha(float alpha){
+        this.alphaMain = alpha;
+        this.alpha = alpha;
+    }
     public void dispose() {
         font.dispose();
     }
