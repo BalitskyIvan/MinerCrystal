@@ -40,6 +40,7 @@ public class EndScreen {
     private BitmapFont bitmapFont, loseFont;
     private Texture buyBtn;
     private TimeLapse timeLapse;
+    
     public EndScreen(Coins coin, Texture bb, FreeTypeFontGenerator generator, PauseBtn pauseBtn, TimeLapse timeLapse, PersonAnimation minerAnim) {
         this.coins = coin;
         this.bb = bb;

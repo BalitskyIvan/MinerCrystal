@@ -21,7 +21,7 @@ public class StoryMain {
 
     public StoryMain(BitmapFont bitmapFont) {
         textPrinter = new TextPrinter(bitmapFont);
-        CutNow = new K3(textPrinter);
+        CutNow = new K2(textPrinter);
         CutNow.play(12, "Once upon a time,\n on a small island\n in a small village");
     }
 

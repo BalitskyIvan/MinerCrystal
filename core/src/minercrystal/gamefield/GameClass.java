@@ -19,8 +19,8 @@ public class GameClass extends Game {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        this.setScreen(new MenuScreen(this, null));
-       /// this.setScreen(new MenuSelectScreen(this, null, false));
+        //this.setScreen(new MenuScreen(this, null));
+       this.setScreen(new MenuSelectScreen(this, null, false));
        // this.setScreen(new PlayScreen(this, Gdx.app.getPreferences("MainPreferences"), true, 1));
     }
 

@@ -326,10 +326,10 @@ public class MenuSelectScreen implements Screen {
             isCanTouch = false;
             animationGoToNextLocation = true;
             menuSelectScreenAnimation.initLBlocks(true, 1670 - DELTA_Y_SELECT * Level, true, Location - 1);
-            Level = 0;
-            mainPrefs.putInteger("Location", Location);
-            mainPrefs.putInteger("Level", 0);
-            mainPrefs.flush();
+//            Level = 0;
+//            mainPrefs.putInteger("Location", Location);
+//            mainPrefs.putInteger("Level", 0);
+//            mainPrefs.flush();
             backMenuSelectScreen = new BackMenuSelectScreen(String.valueOf(mainPrefs.getInteger("Map", 1)), Location, 1670 - DELTA_Y_SELECT * Level, isWin, endsOfLevels, DELTA_Y_SELECT, 0);
 
         } else {
